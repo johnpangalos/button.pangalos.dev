@@ -1,5 +1,5 @@
 import { confetti } from "tsparticles-confetti";
-import horseAudio from "./horse.mp3"
+import horseAudio from "./horse.mp3";
 
 const defaults = {
   spread: 360,
@@ -22,12 +22,10 @@ async function shoot() {
   });
 }
 
-const horse = new Audio(horseAudio)
-export function setupShoot(element: HTMLButtonElement) {
-  element.addEventListener('click', async () => {
-    await Promise.all([
-      shoot(), horse.play()
-    ])
-  })
-}
+const horse = new Audio(horseAudio);
 
+export function setupShoot(element: HTMLButtonElement) {
+  element.addEventListener("click", async () => {
+    await Promise.all([shoot(), horse.play()]);
+  });
+}
