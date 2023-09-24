@@ -1,5 +1,7 @@
 import { confetti } from "tsparticles-confetti";
 import horseAudio from "./horse.mp3";
+import yeahboyAudio from "./yeah-boy.mp3";
+import amongus from "./amongus.png";
 
 const defaults = {
   spread: 360,
@@ -13,19 +15,22 @@ async function shoot() {
     ...defaults,
     particleCount: 20,
     scalar: 2,
-    shapes: ["text"],
+    shapes: ["images"],
     shapeOptions: {
-      text: {
-        value: ["🦄", "🌈"],
+      images: {
+        src: amongus,
+        width: 50,
+        height: 64,
       },
     },
   });
 }
 
-const horse = new Audio(horseAudio);
+// const horse = new Audio(horseAudio);
 
 export function setupShoot(element: HTMLButtonElement) {
   element.addEventListener("click", async () => {
-    await Promise.all([shoot(), horse.play()]);
+    const yeahboy = new Audio(yeahboyAudio);
+    await Promise.all([shoot(), yeahboy.play()]);
   });
 }
