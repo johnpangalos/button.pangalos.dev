@@ -1,5 +1,5 @@
 import { confetti } from "tsparticles-confetti";
-import horseAudio from "./horse.mp3";
+// import horseAudio from "./horse.mp3";
 import yeahboyAudio from "./yeah-boy.mp3";
 import amongus from "./amongus.png";
 
