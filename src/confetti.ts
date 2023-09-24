@@ -27,7 +27,6 @@ async function shoot() {
 }
 
 // const horse = new Audio(horseAudio);
-new Audio(yeahboyAudio);
 
 export function setupShoot(element: HTMLButtonElement) {
   const yeahboy = new Audio(yeahboyAudio);
