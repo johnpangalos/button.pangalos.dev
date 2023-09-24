@@ -27,10 +27,11 @@ async function shoot() {
 }
 
 // const horse = new Audio(horseAudio);
+new Audio(yeahboyAudio);
 
 export function setupShoot(element: HTMLButtonElement) {
+  const yeahboy = new Audio(yeahboyAudio);
   element.addEventListener("click", async () => {
-    const yeahboy = new Audio(yeahboyAudio);
     await Promise.all([shoot(), yeahboy.play()]);
   });
 }
