@@ -52,11 +52,13 @@ type Particle = {
   age: number;
   finalScale: number;
   vy: number;
+  sprite: HTMLCanvasElement;
 };
 
 function createParticle(
   x: number,
   y: number,
+  sprite: HTMLCanvasElement,
   options?: CreateParticleOptions,
 ): Particle {
   options = options || {};
@@ -81,6 +83,7 @@ function createParticle(
       options.maxScale || 30 + scale,
     ),
     vy: startvy,
+    sprite,
   };
 }
 
@@ -112,7 +115,6 @@ function drawParticle(
 export function SmokeMachine(context: CanvasRenderingContext2D) {
   let particles: Particle[] = [];
   let preDrawCallback: (...args: unknown[]) => void = function () {};
-  let smokeParticleImage: HTMLCanvasElement | null = null;
 
   function updateAndDrawParticles(deltatime: number) {
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
@@ -126,8 +128,7 @@ export function SmokeMachine(context: CanvasRenderingContext2D) {
 
     preDrawCallback(deltatime, particles);
     particles.forEach(function (p) {
-      if (smokeParticleImage === null) return;
-      drawParticle(p, smokeParticleImage, context);
+      drawParticle(p, p.sprite, context);
     });
   }
 
@@ -166,16 +167,16 @@ export function SmokeMachine(context: CanvasRenderingContext2D) {
       color: Color,
       options?: CreateParticleOptions,
     ) {
-      smokeParticleImage = makeSmokeSprite(color);
+      const smokeParticleImage = makeSmokeSprite(color);
 
       numParticles = numParticles || 10;
       if (numParticles < 1)
         return (
           Math.random() <= numParticles &&
-          particles.push(createParticle(x, y, options))
+          particles.push(createParticle(x, y, smokeParticleImage, options))
         );
       for (var i = 0; i < numParticles; i++)
-        particles.push(createParticle(x, y, options));
+        particles.push(createParticle(x, y, smokeParticleImage, options));
     },
   };
 }

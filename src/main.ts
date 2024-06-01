@@ -18,13 +18,14 @@ const colors: Color[] = [
   [153, 102, 51],
   [68, 40, 0],
   [135, 110, 75],
+  [81, 107, 25],
 ];
 async function shoot() {
   party.addSmoke(
     innerWidth / 2,
     innerHeight,
     Math.random() * 100,
-    colors[Math.floor(Math.random() * 2.999999)],
+    colors[Math.floor(Math.random() * 3.999999)],
   );
 }
 
