@@ -9,16 +9,38 @@
     />
     <title>The button!</title>
   </head>
+  <style>
+    .pushable:focus:not(:focus-visible) {
+      outline: none;
+    }
+  </style>
   <body class="touch-manipulation">
     <div class="h-[100svh]" id="app">
       <div class="flex items-center justify-center h-full">
-        <button
-          id="shoot"
-          type="button"
-          class="z-50 bg-pink-200 text-gray-700 text-3xl rounded-full w-44 h-44 font-bold border-gray-700 border-2 select-none"
-        >
-          Woohoo!
-        </button>
+        <div class="z-50">
+          <button
+            class="group relative border-none bg-transparent p-0 cursor-pointer outline-offset-4 transition-[filter] duration-[250ms] hover:brightness-110 outline-none"
+            id="shoot"
+            type="button"
+          >
+            <span
+              class="absolute top-0 left-0 h-full w-full rounded-full bg-[hsl(0deg_0%_0%_/_0.25)] will-change-transform translate-y-1 transition-transform duration-[600ms] ease-[cubic-bezier(0.3,0.7,0.4,1)] group-hover:translate-y-[4px] group-hover:transition-transform group-hover:duration-[250ms] group-hover:ease-[cubic-bezier(0.3,0.7,0.4,1.5)] group-active:translate-y-px group-active:transition-transform group-active:duration-[34ms]"
+            ></span>
+            <span
+              class="absolute top-0 left-0 w-full h-full rounded-full bg-[linear-gradient(to_left,hsl(340deg_20%_16%)_0%,hsl(340deg_20%_32%)_8%,hsl(340deg_20%_32%)_92%,hsl(340deg_20%_16%)_100%)]"
+            ></span>
+            <span
+              class="block relative w-44 h-44 rounded-full text-gray-700 font-bold bg-pink-200 will-change-transform -translate-y-[4px] transition-transform duration-[600ms] ease-[cubic-bezier(0.3,0.7,0.4,1)] text-3xl group-hover:-translate-y-[6px] group-hover:transition-transform group-hover:duration-[250ms] group-hover:ease-[cubic-bezier(0.3,0.7,0.4,1.5)] group-active:-translate-y-[2px] group-active:transition-transform group-active:duration-[34ms]"
+            >
+              <div class="h-full w-full grid place-content-center">
+                Press me!
+              </div>
+            </span>
+          </button>
+        </div>
+        <!-- <button -->
+        <!--   class="z-50 bg-pink-200 text-gray-700 text-3xl rounded-full w-44 h-44 font-bold border-gray-700 border-2 select-none" -->
+        <!-- ></button> -->
       </div>
       <canvas
         id="canvas"
