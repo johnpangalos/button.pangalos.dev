@@ -3,11 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>The button!</title>
   </head>
   <body class="touch-manipulation">
-    <div class="h-[100svh]" id="app"></div>
+    <div class="h-[100svh]" id="app">
+      <div class="flex items-center justify-center h-full">
+        <button
+          id="shoot"
+          type="button"
+          class="z-50 bg-pink-200 text-gray-700 text-3xl rounded-full w-44 h-44 font-bold border-gray-700 border-2 select-none"
+        >
+          Woohoo!
+        </button>
+      </div>
+      <canvas
+        id="canvas"
+        class="w-full h-full fixed z-10 left-0 top-0"
+      ></canvas>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 import { loadFirePreset } from "tsparticles-preset-fire";
 import { tsParticles } from "tsparticles-engine";
-import screamAudio from "./scream.mp3";
+import fartAudio from "./fart.mp3";
 
 async function shoot() {
   await loadFirePreset(tsParticles);
@@ -16,7 +16,7 @@ async function shoot() {
 
 export function setupShoot(element: HTMLButtonElement) {
   element.addEventListener("click", async () => {
-    const scream = new Audio(screamAudio);
+    const scream = new Audio(fartAudio);
     await Promise.all([shoot(), scream.play()]);
   });
 }
